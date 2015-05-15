@@ -9,6 +9,7 @@ gem('sinatra')
 group(:test) do
   gem('rspec')
   gem('pry')
+  gem('capybara')
   gem('shoulda-matchers')
   gem('launchy')
 end

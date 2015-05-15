@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: bandtracker_development
+
+test:
+  adapter: postgresql
+  database: bandtracker_test
