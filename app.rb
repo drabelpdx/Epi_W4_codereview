@@ -20,5 +20,13 @@ post('/bands') do
 end
 
 get('/venues') do
+  @venues = Venue.all()
+  erb(:venues)
+end
+
+post('/venues') do
+  name = params.fetch('name')
+  Venue.create({:name => name})
+  @venues = Venue.all()
   erb(:venues)
 end
