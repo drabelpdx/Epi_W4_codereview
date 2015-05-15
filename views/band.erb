@@ -24,10 +24,10 @@
   </div>
 </div>
 
-
-<br><br>
+<br>
 <div class="venues">
-<h3>All Venues the Band has played:</h3>
+<h3>Venues the Band has played:</h3>
+<p>(checked = played)</p>
 
 <% if @venues.any?() %>
   <form action="/venue/band/<%= @band.id %>" method="post">
@@ -36,17 +36,17 @@
     <% @venues.each() do |venue| %>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"
+      <h4>  <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"
           <% if @venues_checked.include?(venue.id) %>
            checked
         <% end %>
            >
       <%= venue.name() %>
-        </label>
+    </h4></label>
       </div>
       <% end %>
-      <p>Check a box to add to the list</p>
-      <button type="submit">Add Venue</button>
+      <br>
+      <button type="submit">Update</button>
     </form>
   <% end %>
 </div>
