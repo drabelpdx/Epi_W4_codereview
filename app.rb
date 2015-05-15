@@ -31,19 +31,39 @@ post('/venues') do
   erb(:venues)
 end
 
-get('/bands/:id') do
+get('/band/:id') do
   @band = Band.find(params.fetch("id"))
+  @venues = Venue.all()
+  @venues_checked = @band.venues.ids
   erb(:band)
 end
 
-patch('/bands/:id') do
+patch('/band/:id') do
   @band = Band.find(params.fetch("id"))
   name = params.fetch('name')
   @band.update(:name => name)
+  @venues = Venue.all()
+  @venues_checked = @band.venues.ids
   erb(:band)
 end
 
-get('/venues/:id') do
+delete('/band/:id') do
+  @band = Band.find(params.fetch("id"))
+  @band.delete()
+  @bands = Band.all()
+  erb(:bands)
+end
+
+patch('/venue/band/:id') do
+  @band = Band.find(params.fetch("id").to_i())
+  venue_ids = params.fetch("venue_ids")
+  @band.update({:venue_ids => venue_ids})
+  @venues = Venue.all()
+  @venues_checked = @band.venues.ids
+  erb(:band)
+end
+
+get('/venue/:id') do
   @venue = Venue.find(params.fetch("id"))
   erb(:venue)
 end

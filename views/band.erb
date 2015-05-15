@@ -1,20 +1,52 @@
-<h1><%= @band.name %></h1>
+<div class="bands">
 
-<p>Change the Band's name</p>
+  <h1><%= @band.name %></h1>
 
-<form action="/bands/<%= @band.id() %>" method="post">
-  <input name="_method" type="hidden" value="patch">
-  <div class="form-group">
-    <input name="name" id="name" type="text"><br>
+  <div class="row">
+    <div class="col-md-6"><p>Change the Band's name</p>
+      <form action="/band/<%= @band.id() %>" method="post">
+        <input name="_method" type="hidden" value="patch">
+        <div class="form-group">
+          <input name="name" id="name" type="text"><br>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+    </div>
+
+    <div class="col-md-6"><p>Delete this Band</p>
+      <form action="/band/<%= @band.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <div class="form-group">
+        <button type="submit" class="btn-danger">Delete</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <button type="submit" class="btn btn-success">Update</button>
-</form>
-<br>
+</div>
 
-<!-- <p>Delete this Band</p>
-<form action="/bands/<%= @band.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <div class="form-group">
-    <button type="submit" class="btn-danger">Delete</button>
-  </div>
-</form> -->
+
+<br><br>
+<div class="venues">
+<h3>All Venues the Band has played:</h3>
+
+<% if @venues.any?() %>
+  <form action="/venue/band/<%= @band.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+
+    <% @venues.each() do |venue| %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"
+          <% if @venues_checked.include?(venue.id) %>
+           checked
+        <% end %>
+           >
+      <%= venue.name() %>
+        </label>
+      </div>
+      <% end %>
+      <p>Check a box to add to the list</p>
+      <button type="submit">Add Venue</button>
+    </form>
+  <% end %>
+</div>

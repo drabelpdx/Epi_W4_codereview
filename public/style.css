@@ -1,0 +1,28 @@
+
+
+body {
+  background-color: 00cccc;
+}
+
+
+.venues {
+  background-color: 99ccff; padding: 10px; border-radius: 10px; margin: 5px;
+}
+
+.bands {
+  background-color: ccffff; padding: 10px; border-radius: 10px; margin: 5px;
+
+}
+
+.nav {
+  background-color: ffff99; padding: 5px; border-radius: 20px; margin: 5px; align: center; text-align: center;
+
+}
+
+.checkbox {
+    display: inline-block; padding: 10px;
+}
+
+.title h1 {
+  color: white; text-align: center;
+}
