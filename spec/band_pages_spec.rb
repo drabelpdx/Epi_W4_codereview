@@ -15,3 +15,12 @@ describe('the band page', {:type => :feature}) do
     expect(page).to have_content('Fine Bunch Of Boys')
   end
 end
+
+describe('the update band path', {:type => :feature}) do
+  it('updates - changes a band name') do
+    visit('/bands/5')
+    fill_in('name', :with => 'Tossed Pasta Salad')
+    click_button('Update')
+    expect(page).to have_content('Tossed Pasta Salad')
+  end
+end

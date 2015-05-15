@@ -1,1 +1,20 @@
 <h1><%= @band.name %></h1>
+
+<p>Change the Band's name</p>
+
+<form action="/bands/<%= @band.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <div class="form-group">
+    <input name="name" id="name" type="text"><br>
+  </div>
+  <button type="submit" class="btn btn-success">Update</button>
+</form>
+<br>
+
+<!-- <p>Delete this Band</p>
+<form action="/bands/<%= @band.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <div class="form-group">
+    <button type="submit" class="btn-danger">Delete</button>
+  </div>
+</form> -->
