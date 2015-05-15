@@ -35,3 +35,8 @@ get('/bands/:id') do
   @band = Band.find(params.fetch("id"))
   erb(:band)
 end
+
+get('/venues/:id') do
+  @venue = Venue.find(params.fetch("id"))
+  erb(:venue)
+end

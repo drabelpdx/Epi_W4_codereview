@@ -8,3 +8,10 @@ describe('the add venue path', {:type => :feature}) do
     expect(page).to have_content('The Sprocket')
   end
 end
+
+describe('the venue page', {:type => :feature}) do
+  it('goes to a venue page') do
+    visit('/venues/6')
+    expect(page).to have_content('The Sprocket')
+  end
+end
