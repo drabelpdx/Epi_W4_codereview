@@ -1,10 +1,10 @@
-# require('spec_helper')
-#
-# describe('the project path', {:type => :feature} ) do
-#   it('it does something') do
-#     visit('/')
-#     fill_in('something', :with => 'input')
-#     click_button('Button Name')
-#     expect(page).to have_content('ouput')
-#   end
-# end
+ require('spec_helper')
+
+describe('the add band path', {:type => :feature}) do
+  it('adds a band') do
+    visit('/bands')
+    fill_in('name', :with => 'Pasta Salad')
+    click_button('Add Band')
+    expect(page).to have_content('Pasta Salad')
+  end
+end

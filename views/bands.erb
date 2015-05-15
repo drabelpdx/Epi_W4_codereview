@@ -1,0 +1,18 @@
+<h1>Add a Band</h1>
+
+<form action="/bands" method="post">
+  <div class="form-group">
+    <label for="name">Band Name:</label>
+    <input name="name" id="name" type="text"><br><br>
+  </div>
+    <br>
+    <button type="submit" class="btn btn-success">Add Band</button>
+</form>
+
+<br><br>
+<h4>These are all the Bands</h4>
+  <ul>
+    <% @bands.each() do |band| %>
+      <li><a href="/band/<%= band.id %>"><%= band.name %></a></li>
+    <% end %>
+  </ul>

@@ -1,0 +1,18 @@
+<h1>Add a Venue</h1>
+
+<form action="/venues" method="post">
+  <div class="form-group">
+    <label for="name">Venue Name:</label>
+    <input name="name" id="name" type="text"><br><br>
+  </div>
+    <br>
+    <button type="submit" class="btn btn-success">Add Venue</button>
+</form>
+
+<br><br>
+<h4>These are all the Venues</h4>
+  <ul>
+    <% @venues.each() do |venue| %>
+      <li><a href="/venue/<%= venue.id %>"><%= venue.name %></a></li>
+    <% end %>
+  </ul>
