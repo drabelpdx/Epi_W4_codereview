@@ -8,3 +8,10 @@ describe('the add band path', {:type => :feature}) do
     expect(page).to have_content('Pasta Salad')
   end
 end
+
+describe('the band page', {:type => :feature}) do
+  it('goes to a band page') do
+    visit('/bands/3')
+    expect(page).to have_content('Fine Bunch Of Boys')
+  end
+end

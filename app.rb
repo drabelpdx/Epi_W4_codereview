@@ -30,3 +30,8 @@ post('/venues') do
   @venues = Venue.all()
   erb(:venues)
 end
+
+get('/bands/:id') do
+  @band = Band.find(params.fetch("id"))
+  erb(:band)
+end
